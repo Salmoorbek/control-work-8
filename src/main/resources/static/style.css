@@ -4,35 +4,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 50px;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-input[type="text"] {
-    font-size: 16px;
-    padding: 10px;
-    margin-right: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button[type="submit"] {
-    font-size: 16px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 #cocktailList {
     margin-left: 50px;
 }
@@ -58,7 +29,7 @@ button[type="submit"] {
     height: auto;
 }
 
-.cocktail h3 {
+.cocktail h6 {
     text-align: center;
     margin-bottom: 5px;
 }

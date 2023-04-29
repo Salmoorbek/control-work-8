@@ -44,7 +44,6 @@ function createModal(cocktailId) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`)
         .then(response => response.json())
         .then(data => {
-
             const modal = document.createElement('div');
             modell = modal;
             modal.classList.add('modal');
@@ -53,7 +52,7 @@ function createModal(cocktailId) {
             const closeModal = document.createElement('span');
             closeModal.classList.add('close');
             closeModal.innerHTML = '&times;';
-            const cocktailNameModal = document.createElement('h3');
+            const cocktailNameModal = document.createElement('h6');
             cocktailNameModal.textContent = data.drinks[0].strDrink;
             const cocktailImgModal = document.createElement('img');
             cocktailImgModal.src = data.drinks[0].strDrinkThumb;
@@ -116,7 +115,7 @@ searchFormIngredient.addEventListener('submit', (event) => {
                 const cocktailElement = document.createElement('div');
                 cocktailElement.classList.add('cocktail');
                 cocktailElement.setAttribute('data-id', drink.idDrink);
-                const cocktailName = document.createElement('h3');
+                const cocktailName = document.createElement('h6');
                 cocktailName.textContent = drink.strDrink;
                 const cocktailImg = document.createElement('img');
                 cocktailImg.src = drink.strDrinkThumb;
@@ -148,7 +147,7 @@ function createIngredientModal(ingredientName) {
             const closeModal = document.createElement('span');
             closeModal.classList.add('close');
             closeModal.innerHTML = '&times;';
-            const ingredientNameModal = document.createElement('h2');
+            const ingredientNameModal = document.createElement('h6');
             ingredientNameModal.textContent = data.ingredients[0].strIngredient;
             const ingredientImgModal = document.createElement('img');
             ingredientImgModal.src = `https://www.thecocktaildb.com/images/ingredients/${data.ingredients[0].strIngredient.toLowerCase()}.png`;
