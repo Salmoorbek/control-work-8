@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search Cocktails</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<h1>Search Cocktails</h1>
+<form id="searchForm">
+    <label for="searchTerm">Search cocktails:</label>
+    <input type="text" id="searchTerm" placeholder="Search cocktails...">
+    <button type="submit">Search</button>
+    <div id="error-message"></div>
+</form>
+<form id="searchFormIngredient">
+    <label for="searchTerm">Search by ingredient:</label>
+    <input type="text" id="searchTermIngredient" placeholder="Search by ingredient..." name="searchTerm">
+    <button type="submit">Search</button>
+    <div id="error-message-second"></div>
+</form>
+<div id="cocktailList"></div>
+
+<script src="../static/script.js"></script>
+</body>
+</html>
