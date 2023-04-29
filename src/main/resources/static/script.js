@@ -2,6 +2,7 @@ const cocktailList = document.getElementById('cocktailList');
 const searchForm = document.getElementById('searchForm');
 const errorMessage = document.getElementById('error-message');
 const errorMessage2 = document.getElementById('error-message-second');
+
 searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const searchTerm = document.getElementById('searchTerm').value;
@@ -38,12 +39,14 @@ const searchTermInput = document.getElementById('searchTerm');
 searchTermInput.addEventListener('input', () => {
     errorMessage.textContent = '';
 });
-
+let modell;
 function createModal(cocktailId) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailId}`)
         .then(response => response.json())
         .then(data => {
+
             const modal = document.createElement('div');
+            modell = modal;
             modal.classList.add('modal');
             const modalContent = document.createElement('div');
             modalContent.classList.add('modal-content');
@@ -99,6 +102,7 @@ function createModal(cocktailId) {
         .catch(error => console.log(error));
 }
 
+
 const searchFormIngredient = document.getElementById('searchFormIngredient');
 
 searchFormIngredient.addEventListener('submit', (event) => {
@@ -137,8 +141,8 @@ function createIngredientModal(ingredientName) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`)
         .then(response => response.json())
         .then(data => {
-            const modal = document.createElement('div');
-            modal.classList.add('modal');
+            const modalIngredient = document.createElement('div');
+            modalIngredient.classList.add('modal');
             const modalContent = document.createElement('div');
             modalContent.classList.add('modal-content');
             const closeModal = document.createElement('span');
@@ -159,21 +163,26 @@ function createIngredientModal(ingredientName) {
                 const searchTermIngredient = document.getElementById('searchTermIngredient');
                 searchTermIngredient.value = data.ingredients[0].strIngredient;
                 searchFormIngredient.dispatchEvent(new Event('submit'));
-                modal.remove();
+                modalIngredient.remove();
+                modell.remove();
             });
             modalContent.appendChild(closeModal);
             modalContent.appendChild(ingredientNameModal);
             modalContent.appendChild(ingredientImgModal);
             modalContent.appendChild(ingredientDescription);
             modalContent.appendChild(ingredientSearchLink);
-            modal.appendChild(modalContent);
-            document.body.appendChild(modal);
+            modalIngredient.appendChild(modalContent);
+            document.body.appendChild(modalIngredient);
             closeModal.addEventListener('click', () => {
-                modal.remove();
+                modalIngredient.remove();
+                modell.remove();
             });
-            modal.style.display = 'block';
+            modalIngredient.style.display = 'block';
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            errorMessage2.textContent = 'An error has occurred. Please try again.';
+            console.log(error);
+        });
 }
 
 const searchTermInput2 = document.getElementById('searchTermIngredient');
