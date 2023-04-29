@@ -14,7 +14,7 @@ searchForm.addEventListener('submit', (event) => {
                 const cocktailElement = document.createElement('div');
                 cocktailElement.classList.add('cocktail');
                 cocktailElement.setAttribute('data-id', drink.idDrink);
-                const cocktailName = document.createElement('h3');
+                const cocktailName = document.createElement('h6');
                 cocktailName.textContent = drink.strDrink;
                 const cocktailImg = document.createElement('img');
                 cocktailImg.src = drink.strDrinkThumb;
